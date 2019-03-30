@@ -5,15 +5,15 @@ const {stripIndent} = require('common-tags');
 mongoose.Promise = global.Promise;
 
 (async () => {
-	await mongoose.connect('mongodb://localhost:27017/esolang-battle');
+	await mongoose.connect('mongodb://localhost:27010/esolang-battle');
 
 	await Contest.updateOne(
 		{id: 'komabasai2018-day1'},
 		{
-			name: '駒場祭2018 Live Codegolf Contest day1',
+			name: '[[KMC Version]] 駒場祭2018 Live Codegolf Contest day1',
 			id: 'komabasai2018-day1',
-			start: new Date('2018-11-23T14:03:00+0900'),
-			end: new Date('2018-11-23T15:18:00+0900'),
+			start: new Date('2019-03-29T00:00:00+0900'),
+			end: new Date('2019-04-04T00:00:00+0900'),
 			description: {
 				ja: stripIndent`
 				\`\`\`

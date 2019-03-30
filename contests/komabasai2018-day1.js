@@ -4,30 +4,19 @@ const inRange = require('lodash/inRange');
 
 module.exports.getPrecedingIndices = (cellIndex) => {
 	assert(cellIndex >= 0);
-	assert(cellIndex < 16);
+	assert(cellIndex < 24);
 
 	const x = cellIndex % 4;
 	const y = Math.floor(cellIndex / 4);
 
 	const precedingCells = [];
 
-	if (x - 1 >= 0) {
-		precedingCells.push(y * 4 + (x - 1));
+    const dx = [0, 1, 1, 1, 0, -1, -1, -1], dy = [1, 1, 0, -1, -1, -1, 0, 1];
+	for (let i = 0; i < dx.length; i += 1){
+		let nx = (x + dx[i] + 4)%4, ny = (y + dy[i]+6)%6;
+		precedingCells.push(ny * 4 + nx);
 	}
-
-	if (x + 1 < 4) {
-		precedingCells.push(y * 4 + (x + 1));
-	}
-
-	if (y - 1 >= 0) {
-		precedingCells.push((y - 1) * 4 + x);
-	}
-
-	if (y + 1 < 4) {
-		precedingCells.push((y + 1) * 4 + x);
-	}
-
-	return precedingCells.filter((cell) => ![0, 3, 12, 15].includes(cell));
+	return precedingCells;
 };
 
 module.exports.generateInput = () => `${[random(10, 99), random(10, 99)].join('\n')}\n`;

@@ -19,15 +19,14 @@ class App extends React.Component {
 			.querySelector('meta[name=contest-id]')
 			.getAttribute('content');
 
-		this.size = ['mayfes2018-day1', 'mayfes2018-day2'].includes(this.contestId)
-			? 3
-			: 4;
+		this.size_h = 6;
+		this.size_w = 4;
 
 		this.state = {
 			code: '',
 			files: [],
 			languages: [],
-			languageColors: Array(this.size ** 2).fill('white'),
+			languageColors: Array(this.size_h * this.size_w).fill('white'),
 			selectedLanguage: null,
 			isPending: false,
 			message: null,
@@ -75,7 +74,7 @@ class App extends React.Component {
 
 	isEmpty = (cell) => {
 		if (this.contestId === 'komabasai2018-day1') {
-			return [0, 3, 12, 15].includes(cell);
+			return false;
 		}
 		if (this.contestId === 'komabasai2018-day2') {
 			return [3, 12].includes(cell);
@@ -191,7 +190,7 @@ class App extends React.Component {
 	};
 
 	renderTeam = (color, index) => {
-		const cellCounts = Array(this.size)
+		const cellCounts = Array(this.size_h)
 			.fill()
 			.map(
 				(_, index) => this.state.languages.filter((language) => language.team === index)
@@ -220,46 +219,46 @@ class App extends React.Component {
 			<div className="world">
 				<div className="teams left">{this.renderTeam('Red', 0)}</div>
 				<div className="map">
-					{Array(this.size)
+					{Array(this.size_h)
 						.fill()
 						.map((_, y) => (
 							<div key={y} className="row">
-								{Array(this.size)
+								{Array(this.size_w)
 									.fill()
-									.map((_, x) => this.isEmpty(y * this.size + x) ? (
+									.map((_, x) => this.isEmpty(y * this.size_w + x) ? (
 										<div key={x} className="cell white empty"/>
 									) : (
 										<div
 											key={x}
 											className={`cell ${
-												this.state.languageColors[y * this.size + x]
+												this.state.languageColors[y * this.size_w + x]
 											}`}
 											onClick={this.handleClickCell}
 											style={{
 												cursor:
-														this.state.languages[y * this.size + x] &&
-														this.state.languages[y * this.size + x].available
+														this.state.languages[y * this.size_w + x] &&
+														this.state.languages[y * this.size_w + x].available
 															? 'pointer'
 															: '',
 												color:
-														this.state.languages[y * this.size + x] &&
-														this.state.languages[y * this.size + x].team ===
+														this.state.languages[y * this.size_w + x] &&
+														this.state.languages[y * this.size_w + x].team ===
 															undefined
 															? '#222'
 															: 'white',
 											}}
-											data-index={y * this.size + x}
+											data-index={y * this.size_w + x}
 										>
 											<div className="language-label">
 												<div className="language-name">
-													{this.state.languages[y * this.size + x]
-														? this.state.languages[y * this.size + x].name
+													{this.state.languages[y * this.size_w + x]
+														? this.state.languages[y * this.size_w + x].name
 														: ''}
 												</div>
 												<div className="language-size">
-													{this.state.languages[y * this.size + x] &&
-														this.state.languages[y * this.size + x].solution
-														? this.state.languages[y * this.size + x].solution
+													{this.state.languages[y * this.size_w + x] &&
+														this.state.languages[y * this.size_w + x].solution
+														? this.state.languages[y * this.size_w + x].solution
 															.size
 														: ''}
 												</div>
