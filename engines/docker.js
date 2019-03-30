@@ -28,7 +28,7 @@ module.exports = async ({id, code, stdin}) => {
 	assert(stdin.length < 10000);
 
 	const {tmpPath, cleanup} = await new Promise((resolve, reject) => {
-		tmp.dir({unsafeCleanup: true}, (error, dTmpPath, dCleanup) => {
+		tmp.dir({dir: "/Users/admin/tmp_code/", unsafeCleanup: true}, (error, dTmpPath, dCleanup) => {
 			if (error) {
 				reject(error);
 			} else {
