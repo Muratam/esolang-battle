@@ -69,6 +69,7 @@
     "react-dom": "^16.6.3",
     "reactstrap": "^6.5.0",
     "shell-escape": "^0.2.0",
+    "slack-incoming-webhook": "^1.1.0",
     "socket.io": "^2.1.1",
     "three": "^0.98.0",
     "three-orbitcontrols": "^2.96.3",
