@@ -4,17 +4,17 @@ const inRange = require('lodash/inRange');
 
 module.exports.getPrecedingIndices = (cellIndex) => {
 	assert(cellIndex >= 0);
-	assert(cellIndex < 24);
+	assert(cellIndex < 36);
 
-	const x = cellIndex % 4;
-	const y = Math.floor(cellIndex / 4);
-
+    const WIDTH = 6;
+	const HEIGHT = 6;
+	const x = cellIndex % WIDTH;
+	const y = Math.floor(cellIndex / WIDTH);
 	const precedingCells = [];
-
     const dx = [0, 1, 1, 1, 0, -1, -1, -1], dy = [1, 1, 0, -1, -1, -1, 0, 1];
 	for (let i = 0; i < dx.length; i += 1){
-		let nx = (x + dx[i] + 4)%4, ny = (y + dy[i]+6)%6;
-		precedingCells.push(ny * 4 + nx);
+		let nx = (x + dx[i] + WIDTH)%WIDTH, ny = (y + dy[i] + HEIGHT)%HEIGHT;
+		precedingCells.push(ny * WIDTH + nx);
 	}
 	return precedingCells;
 };

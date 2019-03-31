@@ -3,23 +3,23 @@ const flatten = require('lodash/flatten');
 const assert = require('assert');
 
 const languages = [
-	['brainfuck-esotope', 'piet', 'emojicode', 'lua'],
-	['c-gcc', 'whitespace', 'bash-busybox', 'nadesiko'],
-	['starry', '', 'python3', 'php'],
-	['node', 'ruby', '', 'vim'],
-	['sqlite3', 'java', 'fish', 'rust'],
-	['haskell', 'apl', 'unlambda', 'ocaml']
+	['brainfuck-esotope', 'piet', 'befunge98', 'evil', 'emojicode', 'lua'],
+	['c-gcc', 'whitespace', 'kotlin', 'golfscript',  'bash-busybox', 'nadesiko'],
+	['starry', '', 'hexagony', 'unreadable',  'python3', 'php'],
+	['node', 'ruby', 'perl', 'malbolge',  '', 'vim'],
+	['sqlite3', 'java', 'rail', 'iwashi',  'fish', 'rust'],
+	['haskell', 'apl', 'crystal', 'spl',  'unlambda', 'ocaml']
 ];
 
 module.exports = flatten(languages).map((language, index) => {
-	if (index === 9) {
+	if (index === 13) {
 		return {
 			type: 'base',
 			team: 0,
 		};
 	}
 
-	if (index === 14) {
+	if (index === 22) {
 		return {
 			type: 'base',
 			team: 1,
