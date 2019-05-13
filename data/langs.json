@@ -783,5 +783,15 @@
     "slug": "bash-busybox",
     "name": "Bash (busybox)",
     "link": "https://busybox.net/"
+  },
+  {
+    "slug": "scheme-guile",
+    "name": "Scheme (Guile)",
+    "link": "https://www.gnu.org/software/guile/"
+  },
+  {
+    "slug": "perl6",
+    "name": "Perl6",
+    "link": "https://perl6.org/"
   }
 ]

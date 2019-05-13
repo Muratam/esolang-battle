@@ -5,7 +5,7 @@ const {stripIndent} = require('common-tags');
 mongoose.Promise = global.Promise;
 
 (async () => {
-	await mongoose.connect('mongodb://localhost:27010/esolang-battle');
+	await mongoose.connect('mongodb://localhost:27010/test');
 
 	await Contest.updateOne(
 		{id: 'komabasai2018-day1'},

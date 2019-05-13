@@ -11,8 +11,8 @@ const {
 } = require('reactstrap');
 const api = require('../../api.js');
 
-const SIZE_H = 6;
-const SIZE_W = 6;
+const SIZE_H = 7;
+const SIZE_W = 7;
 
 class App extends React.Component {
 	constructor(props, context) {
