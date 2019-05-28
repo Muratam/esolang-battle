@@ -4,9 +4,9 @@ const assert = require('assert');
 
 const languages = [
 	['', 'whitespace', 'bash-busybox', ''],
-	['starry', '', 'python3', 'php'],
-	['node', 'ruby', '', 'vim'],
-	['', 'java', 'fish', ''],
+	['starry', '', 'python3', ''],
+	['node', 'ruby', 'octave', ''],
+	['', '', '', ''],
 ];
 
 module.exports = flatten(languages).map((language, index) => {
@@ -16,13 +16,14 @@ module.exports = flatten(languages).map((language, index) => {
 			team: 0,
 		};
 	}
-
+  /*
 	if (index === 10) {
 		return {
 			type: 'base',
 			team: 1,
 		};
 	}
+  */
 
 	const langDatum = langsData.find((lang) => lang.slug === language);
 	assert(language === '' || langDatum !== undefined, language);

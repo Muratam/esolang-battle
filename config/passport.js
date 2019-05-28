@@ -1,7 +1,7 @@
 const _ = require('lodash');
 const passport = require('passport');
 const TwitterStrategy = require('passport-twitter').Strategy;
-
+const mongoose = require('mongoose');
 const User = require('../models/User');
 
 const colors = [
@@ -34,7 +34,8 @@ passport.use(
 			consumerKey: process.env.TWITTER_KEY,
 			consumerSecret: process.env.TWITTER_SECRET,
 			callbackURL: `${process.env.SERVER_ORIGIN}/auth/twitter/callback`,
-			passReqToCallback: true,
+			//callbackURL:"https://kmc.gr.jp",
+      passReqToCallback: true,
 		},
 		// eslint-disable-next-line max-params
 		async (req, accessToken, tokenSecret, profile, done) => {
@@ -60,7 +61,7 @@ passport.use(
 						user.profile.location || profile._json.location;
 					user.profile.picture =
 						user.profile.picture || profile._json.profile_image_url_https;
-
+          user.team = [{value:0,contest:mongoose.Types.ObjectId("5ceb738abe4ca38da46add4c")}]
 					await user.save();
 					req.flash('info', {msg: 'Twitter account has been linked.'});
 					done(null, user);
@@ -84,7 +85,9 @@ passport.use(
 					user.profile.name = profile.displayName;
 					user.profile.location = profile._json.location;
 					user.profile.picture = profile._json.profile_image_url_https;
-					await user.save();
+					user.team = [{value:0,contest:mongoose.Types.ObjectId("5ceb738abe4ca38da46add4c")}]
+
+          await user.save();
 
 					done(null, user);
 				}

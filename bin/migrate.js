@@ -5,15 +5,17 @@ const {stripIndent} = require('common-tags');
 mongoose.Promise = global.Promise;
 
 (async () => {
-	await mongoose.connect('mongodb://localhost:27017/esolang-battle');
+	//await mongoose.connect('mongodb://localhost:27017/esolang-battle');
+	await mongoose.connect('mongodb://localhost:27017/test');
+
 
 	await Contest.updateOne(
 		{id: 'komabasai2018-day1'},
 		{
-			name: '駒場祭2018 Live Codegolf Contest day1',
+			name: 'KMC 最高Esolang作成コンペ',
 			id: 'komabasai2018-day1',
-			start: new Date('2018-11-23T14:03:00+0900'),
-			end: new Date('2018-11-23T15:18:00+0900'),
+			start: new Date('2019-05-26T14:03:00+0900'),
+			end: new Date('2019-06-09T15:18:00+0900'),
 			description: {
 				ja: stripIndent`
 				\`\`\`
@@ -72,7 +74,7 @@ mongoose.Promise = global.Promise;
 		},
 		{upsert: true}
 	);
-
+  /*
 	await Contest.updateOne(
 		{id: 'komabasai2018-day2'},
 		{
@@ -123,6 +125,6 @@ mongoose.Promise = global.Promise;
 		},
 		{upsert: true}
 	);
-
+  */
 	mongoose.connection.close();
 })();
