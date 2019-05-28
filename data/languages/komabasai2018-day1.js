@@ -3,19 +3,21 @@ const flatten = require('lodash/flatten');
 const assert = require('assert');
 
 const languages = [
-	['', 'whitespace', 'bash-busybox', ''],
-	['starry', '', 'python3', ''],
-	['node', 'ruby', 'octave', ''],
-	['', '', '', ''],
+	['', 'hyp_tes', 'shisoku', ''],
+	['mamoph', '', '', 'esc'],
+	['sns', '', '', 'collatz'],
+	['yatsume', 'tetris', 'postlang', ''],
 ];
 
 module.exports = flatten(languages).map((language, index) => {
-	if (index === 5) {
+
+  if (index === 5 || index === 6 || index == 9 || index === 10) {
 		return {
 			type: 'base',
 			team: 0,
 		};
 	}
+
   /*
 	if (index === 10) {
 		return {

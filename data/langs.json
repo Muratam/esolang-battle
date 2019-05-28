@@ -783,5 +783,52 @@
     "slug": "bash-busybox",
     "name": "Bash (busybox)",
     "link": "https://busybox.net/"
+  },
+  {
+    "slug": "hyp_tes",
+    "name": "HyperTorus",
+    "link": "https://inside.kmc.gr.jp/wiki/?Event%2F%E6%9C%80%E9%AB%98Esolang%E4%BD%9C%E6%88%90%E3%82%B3%E3%83%B3%E3%83%9A%2FHyperCube%28satos%29"
+  },
+  {
+    "slug": "tetris",
+    "name": "Tetris",
+    "link": "https://sagisawa.0am.jp/tetris/"
+  },
+  {
+    "slug": "esc",
+    "name": "ESClang",
+    "link": "https://github.com/nakario/esclang"
+  },
+  {
+    "slug" : "shisoku",
+    "name" : "四則演算",
+    "link" : "https://github.com/toyukan6/Arithmetic"
+  },
+  {
+    "slug" : "sns",
+    "name" : "SNS(x)",
+    "link" : "https://inside.kmc.gr.jp/wiki/?Event/最高Esolang作成コンペ/SNS(yamunaku)"
+  },
+  {
+    "slug" : "postlang",
+    "name" : "postlang",
+    "link" : "https://inside.kmc.gr.jp/wiki/?Event/最高Esolang作成コンペ/postlang(prime)"
+  },
+  {
+    "slug" : "collatz",
+    "name" : "Collatz(x)",
+    "link" : "https://inside.kmc.gr.jp/wiki/?Event/最高Esolang作成コンペ/Collatz(siotouto)"
+  },
+  {
+    "slug" : "mamoph",
+    "name" : "mamoph(x)",
+    "link" : "https://inside.kmc.gr.jp/wiki/?Event/最高Esolang作成コンペ/mamopm"
+  },
+  {
+    "slug" : "yatsume",
+    "name" : "yatsume",
+    "link" : "https://github.com/wass88/yatsume"
   }
+
+
 ]

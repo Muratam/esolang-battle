@@ -25,7 +25,7 @@ module.exports = async ({id, code, stdin}) => {
 	assert(Buffer.isBuffer(code));
 	assert(typeof stdin === 'string');
 	assert(code.length <= getCodeLimit(id));
-	assert(stdin.length < 10000);
+	assert(stdin.length <= 100000);
 
 	const {tmpPath, cleanup} = await new Promise((resolve, reject) => {
 		tmp.dir({unsafeCleanup: true}, (error, dTmpPath, dCleanup) => {
@@ -97,9 +97,10 @@ module.exports = async ({id, code, stdin}) => {
 				StdinOnce: false,
 				Env: null,
 				Cmd: [
-					'sh',
+					//`./${id}`
+          'sh',
 					'-c',
-					`${shellescape(['script', `/volume/${filename}`])} < /volume/INPUT`,
+          `${shellescape(['script', `/volume/${filename}`])} < /volume/INPUT`,
 				],
 				Image: `esolang/${id}`,
 				Volumes: {

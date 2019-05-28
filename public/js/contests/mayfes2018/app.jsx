@@ -75,7 +75,7 @@ class App extends React.Component {
 
 	isEmpty = (cell) => {
 		if (this.contestId === 'komabasai2018-day1') {
-			return [0, 3, 12, 15].includes(cell);
+			return [0, 3, 15].includes(cell);
 		}
 		if (this.contestId === 'komabasai2018-day2') {
 			return [3, 12].includes(cell);
@@ -249,7 +249,7 @@ class App extends React.Component {
 											}}
 											data-index={y * this.size + x}
 										>
-											<div className="language-label">
+											<div className={ this.state.languages[y * this.size + x] && this.state.languages[y* this.size + x].name && this.state.languages[y*this.size + x].name.endsWith("(x)") ? "language-label bad-language-label" : "language-label"}>
 												<div className="language-name">
 													{this.state.languages[y * this.size + x]
 														? this.state.languages[y * this.size + x].name

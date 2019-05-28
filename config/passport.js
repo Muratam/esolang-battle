@@ -61,7 +61,7 @@ passport.use(
 						user.profile.location || profile._json.location;
 					user.profile.picture =
 						user.profile.picture || profile._json.profile_image_url_https;
-          user.team = [{value:0,contest:mongoose.Types.ObjectId("5ceb738abe4ca38da46add4c")}]
+          user.team = [{value:0,contest:mongoose.Types.ObjectId("5cecaff3798a50bc15d75d24")}]
 					await user.save();
 					req.flash('info', {msg: 'Twitter account has been linked.'});
 					done(null, user);
@@ -85,7 +85,7 @@ passport.use(
 					user.profile.name = profile.displayName;
 					user.profile.location = profile._json.location;
 					user.profile.picture = profile._json.profile_image_url_https;
-					user.team = [{value:0,contest:mongoose.Types.ObjectId("5ceb738abe4ca38da46add4c")}]
+					user.team = [{value:0,contest:mongoose.Types.ObjectId("5cecaff3798a50bc15d75d24")}]
 
           await user.save();
 

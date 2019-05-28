@@ -7,7 +7,7 @@ module.exports.getPrecedingIndices = (cellIndex) => {
 	assert(cellIndex < 16);
   let result = [];
   for(let i = 0 ; i < 16; i ++ ){
-    if (![0,3,12,13,14,15].includes(i)) result.push(i);
+    if (![0,3,15].includes(i)) result.push(i);
   }
   return result
   /*

@@ -144,8 +144,8 @@ module.exports.getCodeLimit = (languageId) => {
 			'taxi',
 		].includes(languageId)
 	) {
-		return 100 * 1024;
+		return 1000 * 1024;
 	}
 
-	return 10 * 1024;
+	return 1000 * 1024;
 };

@@ -87,7 +87,8 @@ module.exports.getCheck = async (req, res) => {
 	const languages = await getLanguageMap({contest: req.contest});
 	const availableLanguages = languages
 		.filter(({type}) => type === 'language')
-		.sort(({name: nameA}, {name: nameB}) => nameA.localeCompare(nameB));
+		.filter(x => x.slug && !x.name.endsWith("(x)"))
+    .sort(({name: nameA}, {name: nameB}) => nameA.localeCompare(nameB));
 
 	res.render('check', {
 		title: 'Check',
